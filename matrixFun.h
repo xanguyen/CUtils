@@ -69,3 +69,15 @@ void freeMatrix(intMatrix* m){
 	free(m->mat);
 	free(m);
 }
+
+int dotProduct(intMatrix* m1, intMatrix* m2){
+	int ans = 0;
+	if(m1->col != 1 || m2->col != 1){
+		printf("Error : vectors should be matrix of size nx1!\n");
+		return -2147483648;
+	}
+	for(int i=0; i<m1->line; i++){
+		ans += m1->mat[i][0] * m2->mat[i][0];
+	}
+	return ans;
+}
